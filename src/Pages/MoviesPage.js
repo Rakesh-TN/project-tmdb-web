@@ -57,7 +57,7 @@ export default function MoviesPage() {
                         <div className='col-lg-8 flex items-center' data-aos='fade-left'>
                             <div>
                                 <p className='text-4xl font-bold mb-4'>{movie.title || 'Title Not Available'}</p>
-                                <p className='mb-8'>{movie.overview || 'Overview not available.'}</p>
+                                <p className='mb-8 text-justify'>{movie.overview || 'Overview not available.'}</p>
 
                                 {/* Status, Release Year, Runtime */}
                                 <p className='mb-4'>
@@ -81,10 +81,10 @@ export default function MoviesPage() {
                                 </div>
 
                                 {/* Budget & Revenue */}
-                                {movie.budget && (
+                                {movie.budget>0 && (
                                     <p>Budget: <span>${movie.budget.toLocaleString()}</span></p>
                                 )}
-                                {movie.revenue && (
+                                {movie.revenue>0 && (
                                     <p>Revenue: <span>${movie.revenue.toLocaleString()}</span></p>
                                 )}
                             </div>
@@ -117,11 +117,11 @@ export default function MoviesPage() {
 
                     {/* Cast Section */}
                     <div className='py-8'>
-                        <CastPlay title='Top Cast' cast={cast} />
+                        {cast.length>0 &&<CastPlay title='Top Cast' cast={cast} />}
                     </div>
                     {/* Similar Movies Section */}
                     <div className='py-8'>
-                        <SimilarMovies title='Similar Movies' similarMovies={similarMovies} /> 
+                        {similarMovies.length>0 &&<SimilarMovies title='Similar Movies' similarMovies={similarMovies} />}
                     </div>
                 </div>
             </section>

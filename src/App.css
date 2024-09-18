@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.LogoColor{
+    color: '#ffb703' !important;
+}
