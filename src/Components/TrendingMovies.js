@@ -64,18 +64,18 @@ export default function TrendingMovies({ data }) {
     if (error) return (<><Loading /></>);
 
     return (
-        <main className='container'>
+        <main className='container pt-10'>
             <p className='text-4xl font-bold text-white'>Trending</p>
             <section className='py-2'>
                 <Slider {...settings}>
                     {trending.map((item) => (
                         <div key={item.id}>
-                            <div>
+                            <div className='bg-gray-900 p-4 rounded-lg'>
                                 <Link to={`/movie/${item.id}`}>
                                     <img
                                         src={`${image500}${item.poster_path}`}
                                         alt='Movie Poster'
-                                        className='img-fluid rounded'
+                                        className='w-full h-auto rounded-lg mb-4'
                                     />
                                 </Link>
                             </div>

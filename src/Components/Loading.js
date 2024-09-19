@@ -7,7 +7,7 @@ export default function Loading() {
       <Bars
         height="100"
         width="100"
-        color="#4fa94d"
+        color="#ffb703"
         ariaLabel="bars-loading"
         visible={true}
       />

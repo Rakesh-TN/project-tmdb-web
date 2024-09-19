@@ -3,8 +3,10 @@ import { image342, placeHolder } from '../Api/MoviesDB';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom';
 
-export default function CastPlay({ cast = [], title = 'Cast' }) {
+
+export default function MovieCard({ title, movies }) {
     const settings = {
         dots: false,
         infinite: true,
@@ -39,29 +41,25 @@ export default function CastPlay({ cast = [], title = 'Cast' }) {
             }
         ]
     };
+
     return (
         <div>
-            <h2 className='text-3xl font-bold mb-6'>{title}</h2>
+            <h2 className='text-4xl font-bold text-white'>{title}</h2>
             <Slider {...settings}>
-                {cast.length > 0 ? (
-                    cast.map((person, index) => (
-                        <div key={index} className='bg-gray-800 p-4 rounded-lg'>
+                {movies && movies.length > 0 &&
+                    movies.map((movie, index) => (
+                        <Link to={`/movie/${movie.id}`}>
+                        <div key={index} className='bg-gray-900 p-4 rounded-lg'>
                             <img
-                                src={person.profile_path ? `${image342}${person.profile_path}` : `${placeHolder}`}  // Use a proper fallback for missing image
-                                alt={person.name || 'Unknown Actor'}
+                                src={movie.poster_path ? `${image342}${movie.poster_path}` : `${placeHolder}`} // Fixed field name
+                                alt={movie.title}
                                 className='w-full h-auto rounded-lg mb-4'
                             />
-                            <div className='text-center'>
-                                <p className='text-lg font-semibold'>{person.name || 'Unknown Actor'}</p>
-                                <p className='text-sm text-gray-400'>{person.character || 'Character not available'}</p>
-                            </div>
                         </div>
+                        </Link>
                     ))
-                ) : (
-                    <p className='text-lg text-gray-400'>No cast available</p>
-                )}
-
+                }
             </Slider>
         </div>
-    );
+    )
 }

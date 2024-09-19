@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchMoviesDetails, image500, image342, fetchMoviesCredits, fetchSimilarMoviesDetails } from '../Api/MoviesDB';
+import { fetchMoviesDetails, image500, fetchMoviesCredits, fetchSimilarMoviesDetails } from '../Api/MoviesDB';
 import { useParams } from 'react-router-dom';
 import Loading from '../Components/Loading';
 import CastPlay from '../Components/Castplay';
@@ -56,7 +56,7 @@ export default function MoviesPage() {
                         {/* Movie Details */}
                         <div className='col-lg-8 flex items-center' data-aos='fade-left'>
                             <div>
-                                <p className='text-4xl font-bold mb-4'>{movie.title || 'Title Not Available'}</p>
+                                <p className='text-6xl font-bold mb-4'>{movie.title || 'Title Not Available'}</p>
                                 <p className='mb-8 text-justify'>{movie.overview || 'Overview not available.'}</p>
 
                                 {/* Status, Release Year, Runtime */}
@@ -98,15 +98,9 @@ export default function MoviesPage() {
                             {movie.production_companies?.length > 0 ? (
                                 movie.production_companies.map((company) => (
                                     <div key={company.id} className='text-center'>
-                                        {company.logo_path ? (
-                                            <img
-                                                src={`${image342}${company.logo_path}`}
-                                                alt={company.name}
-                                                className='mx-auto mb-4'
-                                            />
-                                        ) : (
-                                            <p className='text-xl font-semibold'>{company.name}</p>
-                                        )}
+                                        {
+                                            <p className='text-2xl font-semibold font-mono'>{company.name}</p>
+                                        }
                                     </div>
                                 ))
                             ) : (
