@@ -66,7 +66,7 @@ export default function TrendingMovies({ data }) {
     return (
         <main className='container pt-10'>
             <p className='text-4xl font-bold text-white'>Trending</p>
-            <section className='py-2'>
+            <section>
                 <Slider {...settings}>
                     {trending.map((item) => (
                         <div key={item.id}>

@@ -43,7 +43,7 @@ export default function MovieCard({ title, movies }) {
     };
 
     return (
-        <div>
+        <div className='container '>
             <h2 className='text-4xl font-bold text-white'>{title}</h2>
             <Slider {...settings}>
                 {movies && movies.length > 0 &&

@@ -17,7 +17,6 @@ function Navigation() {
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                         <Nav>
                             <Nav.Link as={Link} to={'/'} className='text-white hoverBtn'>Home</Nav.Link>
-                            <Nav.Link as={Link} to={'/tv'} className='text-white hoverBtn'>TV</Nav.Link> 
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

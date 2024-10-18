@@ -38,7 +38,7 @@ function HomePage() {
             {loading ? (
                 <Loading />
             ) : (
-                <div className='container'>
+                <div className='container my-1'>
                     <TrendingMovies data={trending} />
                     <MovieCard title='Upcoming' movies={upcoming} />
                     <MovieCard title='Top Rated' movies={topRated} />
